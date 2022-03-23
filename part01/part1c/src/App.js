@@ -1,31 +1,23 @@
 import { useState } from 'react'
 
-const Display = ({ counter }) => <div>{counter}</div>
-
-const Button = ({ onClick, text} ) => {
-  return (
-    <button onClick={onClick} >
-      {text}
-    </button>
-  )
-}
 
 const App = () => {
+  const [clicks, setClicks] = useState({
+    left: 0, right: 0
+  })
 
-  const [ counter, setCounter ] = useState(0)
+  const handleLeftClick = () => setClicks({...clicks, left: clicks.left + 1})
 
-  const increase = () => setCounter(counter + 1)
-  const decrease = () => setCounter(counter - 1)
-  const reset = () => setCounter(0)
+  const handleRightClick = () => setClicks({...clicks, right: clicks.right + 1})
+  
 
   return (
     <div>
-      <Display counter={counter} />
-      <Button onClick={increase} text='+' />
-      <Button onClick={reset} text='0' />
-      <Button onClick={decrease} text='-' />
+      {clicks.left}
+      <button onClick={handleLeftClick}>left</button>
+      <button onClick={handleRightClick}>right</button>
+      {clicks.right}
     </div>
   )
 }
-
 export default App
