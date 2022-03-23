@@ -36,10 +36,17 @@ const App = () => {
     setRight(right + 1)
   }
 
+  const resetClick = () => {
+    setRight(0)
+    setLeft(0)
+    setAll(['-'])
+  }
+
   return (
     <div>
       {left}
       <Button handleClick={handleLeftClick} text='left' />
+      <Button handleClick={resetClick} text='reset' />
       <Button handleClick={handleRightClick} text='right' />
       {right}
       <History allClicks={allClicks} />
