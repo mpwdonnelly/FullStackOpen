@@ -27,16 +27,19 @@ const App = () => {
   const [allClicks, setAll] = useState([])
 
   const handleLeftClick = () => {
+    console.log('left click')
     setAll(allClicks.concat('L'))
     setLeft(left + 1)
   }
 
   const handleRightClick = () => {
+    console.log('right click')
     setAll(allClicks.concat('R'))
     setRight(right + 1)
   }
 
   const resetClick = () => {
+    console.log('reset click')
     setRight(0)
     setLeft(0)
     setAll(['-'])
