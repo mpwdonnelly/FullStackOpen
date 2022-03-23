@@ -1,18 +1,29 @@
 import { useState } from 'react'
 
+const Display = ({ counter }) => <div>{counter}</div>
+
+const Button = ({ onClick, text} ) => {
+  return (
+    <button onClick={onClick} >
+      {text}
+    </button>
+  )
+}
+
 const App = () => {
+
   const [ counter, setCounter ] = useState(0)
 
-  const handleClick = () => {
-    console.log('clicked')
-  }
-
+  const increase = () => setCounter(counter + 1)
+  const decrease = () => setCounter(counter - 1)
+  const reset = () => setCounter(0)
 
   return (
     <div>
-      <div>{counter}</div>
-      <button onClick={() => setCounter(counter + 1)}>plus</button>
-      <button onClick={() => setCounter(0)}>reset</button>
+      <Display counter={counter} />
+      <Button onClick={increase} text='+' />
+      <Button onClick={reset} text='0' />
+      <Button onClick={decrease} text='-' />
     </div>
   )
 }
