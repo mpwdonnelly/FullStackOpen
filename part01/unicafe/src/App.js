@@ -26,13 +26,17 @@ const Statistics = ({ bad, neutral, good, total }) => {
   if (total===0) {return (<><p>No feedback given</p></>)}
   return (
     <>
-      <StatisticLine text="good" value={good} />
-      <StatisticLine text="neutral" value={neutral} />
-      <StatisticLine text="bad" value={bad} />
-      <StatisticLine text="SUM" value={total} />
-      <StatisticLine text="AVE" value={((total / 3).toFixed(2))} />
-      <StatisticLine text="%POS" value={ (total > 0) ? (((good/total)* 100).toFixed(2)) : '0.00'} />
-    </>
+      <table>
+        <tbody>
+          <StatisticLine text="good" value={good} />
+          <StatisticLine text="neutral" value={neutral} />
+          <StatisticLine text="bad" value={bad} />
+          <StatisticLine text="SUM" value={total} />
+          <StatisticLine text="AVE" value={((total / 3).toFixed(2))} />
+          <StatisticLine text="%POS" value={ (total > 0) ? (((good/total)* 100).toFixed(2)) : '0.00'} />
+        </tbody>
+      </table>
+     </>
   )
 }
 
