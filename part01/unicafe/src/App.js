@@ -5,7 +5,10 @@ import { useState } from 'react'
 const StatisticLine = ({text, value}) => {
   return (
     <>
-      <p>{text} {value} </p>
+      <tr>
+        <td>{text}</td>
+        <td>{value}</td>
+      </tr>
     </>
   )
 }
@@ -26,9 +29,9 @@ const Statistics = ({ bad, neutral, good, total }) => {
       <StatisticLine text="good" value={good} />
       <StatisticLine text="neutral" value={neutral} />
       <StatisticLine text="bad" value={bad} />
-      <StatisticLine text="total" value={total} />
-      <p>average {((total / 3).toFixed(2))}</p>
-      <p>percent positive = { (total > 0) ? (((good/total)* 100).toFixed(2)) : '0.00'} %</p>
+      <StatisticLine text="SUM" value={total} />
+      <StatisticLine text="AVE" value={((total / 3).toFixed(2))} />
+      <StatisticLine text="%POS" value={ (total > 0) ? (((good/total)* 100).toFixed(2)) : '0.00'} />
     </>
   )
 }
