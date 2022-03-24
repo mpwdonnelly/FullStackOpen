@@ -1,10 +1,20 @@
 import { useState } from 'react'
 
+const Statistics = () => {
+
+  return (
+    0
+  )
+
+
+}
+
 const App = () => {
 
   const [ good, goodCount ] = useState(0)
   const [ bad, badCount ] = useState(0)
   const [ neutral, neutralCount ] = useState(0)
+  const total = good + bad + neutral
 
   return (
     <div className="App">
@@ -17,9 +27,10 @@ const App = () => {
       <p>good {good}</p>
       <p>neutral {neutral}</p>
       <p>bad {bad}</p>
-      <p>all {good + neutral + bad}</p>
-      <p>average {(((good + neutral + bad) / 3).toFixed(2))}</p>
-      <p>% positive = { (((good/(bad + good + neutral))* 100).toFixed(2)) }</p>
+      <p>all {total}</p>
+      <p>average {((total / 3).toFixed(2))}</p>
+      <p>percent positive = { (total > 0) ? (((good/total)* 100).toFixed(2)) : '0.00'} %</p>
+
     </div>
   );
 }
