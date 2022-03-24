@@ -1,12 +1,18 @@
 import { useState } from 'react'
 
-const Statistics = () => {
+const Statistics = ({ bad, neutral, good, total }) => {
 
   return (
-    0
+    <>
+      <h2>statistics</h2>
+      <p>good {good}</p>
+      <p>neutral {neutral}</p>
+      <p>bad {bad}</p>
+      <p>all {total}</p>
+      <p>average {((total / 3).toFixed(2))}</p>
+      <p>percent positive = { (total > 0) ? (((good/total)* 100).toFixed(2)) : '0.00'} %</p>
+    </>
   )
-
-
 }
 
 const App = () => {
@@ -22,15 +28,8 @@ const App = () => {
       <button onClick={() => goodCount(good + 1)}>good</button>
       <button onClick={() => neutralCount(neutral + 1)}>neutral</button>
       <button onClick={() => badCount(bad + 1)}>bad</button>
-      <h2>statistics</h2>
+      <Statistics bad={bad} good={good} neutral={neutral} total={total} />
       
-      <p>good {good}</p>
-      <p>neutral {neutral}</p>
-      <p>bad {bad}</p>
-      <p>all {total}</p>
-      <p>average {((total / 3).toFixed(2))}</p>
-      <p>percent positive = { (total > 0) ? (((good/total)* 100).toFixed(2)) : '0.00'} %</p>
-
     </div>
   );
 }
