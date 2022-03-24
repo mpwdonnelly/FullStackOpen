@@ -11,7 +11,13 @@ const Button = ({onClick, text}) => {
 const App = () => {
 
   const selectAnecdote = () => {
-    setSelected(Math.floor(Math.random() * 7))
+    // ensure that the next selection is different from the previous
+    // prevents repetition
+    let rand = -1
+    while (rand === selected || rand < 1) {
+      rand = Math.floor(Math.random() * 7)
+    }
+    setSelected(rand)
   }
 
   const anecdotes = [
@@ -29,8 +35,8 @@ const App = () => {
 
   return (
     <div>
-      <Button onClick={selectAnecdote} text="next anecdote" />
       <p>{anecdotes[selected]}</p>
+      <Button onClick={selectAnecdote} text="next anecdote" />
     </div>
   )
 }
