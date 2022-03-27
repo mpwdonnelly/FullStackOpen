@@ -1,0 +1,5 @@
+fs = require 'fs'
+
+if (true) {
+  console.log('asdf');
+}
